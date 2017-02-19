@@ -2,12 +2,12 @@
 <%namespace name="base" file="base_helper.tmpl" import="*"/>
 
 <%def name="html_footer()">
-    %if content_footer:
-        <footer id="footer" class="footer">
-            <div class="container">
-                <div class="has-text-centered">${content_footer}</div>
-                ${template_hooks['page_footer']()}
-            </div>
-        </footer>
-    %endif
+%if content_footer:
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="content has-text-centered">${content_footer}</div>
+      ${template_hooks['page_footer']()}
+    </div>
+  </footer>
+%endif
 </%def>

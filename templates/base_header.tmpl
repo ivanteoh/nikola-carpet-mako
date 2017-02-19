@@ -2,84 +2,84 @@
 <%namespace name="base" file="base_helper.tmpl" import="*"/>
 
 <%def name="html_header()">
-    <header id="header">
+<header id="header">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        ${html_site_title()}
+        ${html_translation_header()}
+      </div>
+      <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
+      <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
+      <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <div class="nav-right nav-menu">
+        ${html_navigation_links()}
+      </div>
+    </nav>
+  </div>
+  %if search_form:
+    <section class="hero is-primary">
+      <div class="hero-body">
         <div class="container">
-            <nav class="nav">
-                <div class="nav-left">
-                    ${html_site_title()}
-                    ${html_translation_header()}
-                </div>
-                <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
-                <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
-                <span class="nav-toggle">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </span>
-                <div class="nav-right nav-menu">
-                    ${html_navigation_links()}
-                </div>
-            </nav>
+          <div class="content searchform" role="search">  
+            ${search_form}
+          </div>
         </div>
-        %if search_form:
-        <section class="hero is-primary">
-            <div class="hero-body">
-                <div class="container">
-                    <div class="searchform" role="search">  
-                        ${search_form}
-                    </div>
-                </div>
-            </div>
-        </section>
-        %endif
-    </header>
-    ${template_hooks['page_header']()}
+      </div>
+    </section>
+  %endif
+</header>
+${template_hooks['page_header']()}
 </%def>
 
 <%def name="html_site_title()">
-    <div class="nav-item is-brand">
-        <h1 id="brand">
-            <a href="${abs_link(_link("root", None, lang))}" title="${blog_title|h}" rel="home">
-            %if logo_url:
-                <img src="${logo_url}" alt="${blog_title|h}" id="logo">
-            %endif
+<div class="nav-item is-brand">
+  <h1 id="brand">
+    <a href="${abs_link(_link("root", None, lang))}" title="${blog_title|h}" rel="home">
+      %if logo_url:
+        <img src="${logo_url}" alt="${blog_title|h}" id="logo">
+      %endif
 
-            % if show_blog_title:
-                <span id="blog-title">${blog_title|h}</span>
-            % endif
-            </a>
-        </h1>
-    </div>
+      % if show_blog_title:
+        <span id="blog-title">${blog_title|h}</span>
+      % endif
+    </a>
+  </h1>
+</div>
 </%def>
 
 <%def name="html_navigation_links()">
-    %for url, text in navigation_links[lang]:
-        % if isinstance(url, tuple):
-            <span class="nav-item is-active">${text}</span>
-            %for suburl, text in url:
-                % if rel_link(permalink, suburl) == "#":
-                    <a class="nav-item has-text-right is-active" title="${text}" href="${permalink}">${text} <span class="sr-only">${messages("(active)", lang)}</span></a>
-                %else:
-                    <a class="nav-item has-text-right" title="${text}" href="${suburl}">${text}</a>
-                %endif
-            %endfor
-        % else:
-            % if rel_link(permalink, url) == "#":
-                <a class="nav-item is-active" title="${text}" href="${permalink}">${text} <span class="sr-only">${messages("(active)", lang)}</span></a>
-            %else:
-                <a class="nav-item" title="${text}" href="${url}">${text}</a>
-            %endif
-        % endif
+%for url, text in navigation_links[lang]:
+  % if isinstance(url, tuple):
+    <span class="nav-item is-active">${text}</span>
+    %for suburl, text in url:
+      % if rel_link(permalink, suburl) == "#":
+        <a class="nav-item has-text-right is-active" title="${text}" href="${permalink}">${text} <span class="sr-only">${messages("(active)", lang)}</span></a>
+      %else:
+        <a class="nav-item has-text-right" title="${text}" href="${suburl}">${text}</a>
+      %endif
     %endfor
-    ${template_hooks['menu']()}
-    ${template_hooks['menu_alt']()}
+  % else:
+    % if rel_link(permalink, url) == "#":
+      <a class="nav-item is-active" title="${text}" href="${permalink}">${text} <span class="sr-only">${messages("(active)", lang)}</span></a>
+    %else:
+      <a class="nav-item" title="${text}" href="${url}">${text}</a>
+    %endif
+  % endif
+%endfor
+${template_hooks['menu']()}
+${template_hooks['menu_alt']()}
 </%def>
 
 <%def name="html_translation_header()">
-    %if len(translations) > 1:
-        <div id="toptranslations" class="nav-item">
-            <h2>${messages("Languages:")}</h2>
-            ${base.html_translations()}
-        </div>
-    %endif
+%if len(translations) > 1:
+  <div id="toptranslations" class="nav-item">
+    <h2>${messages("Languages:")}</h2>
+    ${base.html_translations()}
+  </div>
+%endif
 </%def>
