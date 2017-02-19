@@ -18,15 +18,15 @@
   <meta name="author" content="${post.author()|h}">
   
   %if post.prev_post:
-      <link rel="prev" href="${post.prev_post.permalink()}" title="${post.prev_post.title()|h}" type="text/html">
+    <link rel="prev" href="${post.prev_post.permalink()}" title="${post.prev_post.title()|h}" type="text/html">
   %endif
   
   %if post.next_post:
-      <link rel="next" href="${post.next_post.permalink()}" title="${post.next_post.title()|h}" type="text/html">
+    <link rel="next" href="${post.next_post.permalink()}" title="${post.next_post.title()|h}" type="text/html">
   %endif
   
   % if post.is_draft:
-      <meta name="robots" content="noindex">
+    <meta name="robots" content="noindex">
   % endif
   
   ${helper.open_graph_metadata(post)}
