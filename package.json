@@ -4,6 +4,10 @@
   "description": "Nikola theme based from Bulma.",
   "main": "index.js",
   "scripts": {
+    "build": "npm run build-clean && npm run build-sass && npm run build-autoprefix",
+    "build-autoprefix": "postcss --use autoprefixer --output assets/css/style.css assets/css/style.css",
+    "build-clean": "rm -rf assets/css/*",
+    "build-sass": "node-sass --output-style expanded --source-map true --include-path lib/bulma src/scss/style.scss assets/css/style.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +24,9 @@
   },
   "homepage": "https://github.com/ivanteoh/nikola-carpet-mako#readme",
   "devDependencies": {
-    "browserify": "^14.1.0"
+    "autoprefixer": "^6.7.3",
+    "browserify": "^14.1.0",
+    "node-sass": "^4.5.0",
+    "postcss-cli": "^3.0.0-beta"
   }
 }
