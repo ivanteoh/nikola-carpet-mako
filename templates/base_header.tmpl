@@ -11,14 +11,26 @@
       </div>
       <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
       <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
-      <span class="nav-toggle">
+      <span id="nav-toggle-burger" class="nav-toggle">
         <span></span>
         <span></span>
         <span></span>
       </span>
-      <div class="nav-right nav-menu">
+      <div id="nav-toggle-menu" class="nav-right nav-menu">
         ${html_navigation_links()}
       </div>
+      <script type="text/javascript">
+document.getElementById('nav-toggle-burger').onclick = function() {
+  var myMenu = document.getElementById('nav-toggle-menu');
+  var className = ' ' + myMenu.className + ' ';
+  var IS_ACTIVE_CLASS = 'is-active'
+  if ( ~className.indexOf(' ' + IS_ACTIVE_CLASS + ' ') ) {
+     myMenu.className = className.replace(' ' + IS_ACTIVE_CLASS + ' ', ' ');
+  } else {
+     myMenu.className += ' ' + IS_ACTIVE_CLASS;
+  }
+}
+      </script>
     </nav>
   </div>
   %if search_form:
