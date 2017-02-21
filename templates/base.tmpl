@@ -17,6 +17,7 @@ ${template_hooks['extra_head']()}
   <main id="content">
     <%block name="content"></%block>
   </main>
+  ${header.html_search()}
   ${footer.html_footer()}
 </div>
 ${base.late_load_js()}

@@ -2,69 +2,76 @@
 <%namespace name="base" file="base_helper.tmpl" import="*"/>
 
 <%def name="html_header()">
-<header id="header">
-  <div class="container">
-    <nav class="nav">
-      <div class="nav-left">
-        ${html_site_title()}
-        ${html_translation_header()}
-      </div>
-      <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
-      <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
-      <span id="nav-toggle-burger" class="nav-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </span>
-      <div id="nav-toggle-menu" class="nav-right nav-menu">
+<section class="hero is-primary is-medium">
+  <!-- Hero header: will stick at the top -->
+  <div class="hero-head">
+    <header  id="header" class="nav">
+      <div class="container">
+        <div class="nav-left">
+          ${html_site_title()}
+          ${html_translation_header()}
+        </div>
         ${html_navigation_links()}
       </div>
-      <script type="text/javascript">
-document.getElementById('nav-toggle-burger').onclick = function() {
-  var myMenu = document.getElementById('nav-toggle-menu');
-  var className = ' ' + myMenu.className + ' ';
-  var IS_ACTIVE_CLASS = 'is-active'
-  if ( ~className.indexOf(' ' + IS_ACTIVE_CLASS + ' ') ) {
-     myMenu.className = className.replace(' ' + IS_ACTIVE_CLASS + ' ', ' ');
-  } else {
-     myMenu.className += ' ' + IS_ACTIVE_CLASS;
-  }
-}
-      </script>
-    </nav>
+    </header>
   </div>
-  %if search_form:
-    <section class="hero is-primary">
-      <div class="hero-body">
-        <div class="container">
-          <div class="content searchform" role="search">  
-            ${search_form}
-          </div>
+  <!-- Hero content: will be in the middle -->
+  ${html_hero_body()}
+  <!-- Hero footer: will stick at the bottom -->
+</section>
+${template_hooks['page_header']()}
+</%def>
+
+<%def name="html_search()">
+%if search_form:
+  <section class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <div class="content searchform" role="search">  
+          ${search_form}
         </div>
       </div>
-    </section>
-  %endif
-</header>
-${template_hooks['page_header']()}
+    </div>
+  </section>
+%endif
 </%def>
 
 <%def name="html_site_title()">
 <div class="nav-item is-brand">
-  <h1 id="brand">
+  <h1 id="brand" class="site-header">
     <a href="${abs_link(_link("root", None, lang))}" title="${blog_title|h}" rel="home">
       %if logo_url:
-        <img src="${logo_url}" alt="${blog_title|h}" id="logo">
+        <img id="logo" class="site-logo" src="${logo_url}" alt="${blog_title|h}">
       %endif
 
-      % if show_blog_title:
-        <span id="blog-title">${blog_title|h}</span>
-      % endif
+      %if show_blog_title:
+        <span id="blog-title" class="site-title">${blog_title|h}</span>
+      %endif
     </a>
   </h1>
 </div>
 </%def>
 
+<%def name="html_hero_body()">
+%if blog_description:
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">${blog_title|h}</h1>
+      <h2 class="subtitle">${blog_description|h}</h2>
+    </div>
+  </div>
+%endif
+</%def>
+
 <%def name="html_navigation_links()">
+<!-- This "nav-toggle" hamburger menu is only visible on mobile -->
+<!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
+<span id="nav-toggle-burger" class="nav-toggle">
+  <span></span>
+  <span></span>
+  <span></span>
+</span>
+<div id="menu" class="nav-right nav-menu">
 %for url, text in navigation_links[lang]:
   % if isinstance(url, tuple):
     <span class="nav-item is-active">${text}</span>
@@ -85,6 +92,19 @@ ${template_hooks['page_header']()}
 %endfor
 ${template_hooks['menu']()}
 ${template_hooks['menu_alt']()}
+</div>
+<script type="text/javascript">
+document.getElementById('nav-toggle-burger').onclick = function() {
+  var myMenu = document.getElementById('menu');
+  var className = ' ' + myMenu.className + ' ';
+  var IS_ACTIVE_CLASS = 'is-active'
+  if ( ~className.indexOf(' ' + IS_ACTIVE_CLASS + ' ') ) {
+    myMenu.className = className.replace(' ' + IS_ACTIVE_CLASS + ' ', ' ');
+  } else {
+    myMenu.className += ' ' + IS_ACTIVE_CLASS;
+  }
+}
+</script>
 </%def>
 
 <%def name="html_translation_header()">
