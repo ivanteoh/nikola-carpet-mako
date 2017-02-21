@@ -25,24 +25,17 @@ ${parent.extra_head()}
       <div class="column">
         <div class="card">
           <article class="h-entry post-${post.meta('type')}">
-      
-            <header class="card-header">
-              <p class="card-header-title p-name entry-title">
-                <a href="${post.permalink()}" class="u-url">${post.title()|h}</a>
-              </p>
-            </header>
             
             <div class="card-content">
               <div class="media metadata">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <img src="/assets/img/type-96x96.png" alt="Image">
+                  </figure>
+                </div>
                 <div class="media-content">
-                  <p class="title is-4 byline author vcard">
-                    <span class="byline-name fn">
-                      % if author_pages_generated:
-                        <a href="${_link('author', post.author())}">${post.author()|h}</a>
-                      % else:
-                        ${post.author()|h}
-                      % endif
-                    </span>
+                  <p class="title is-2 p-name entry-title">
+                    <a href="${post.permalink()}" class="u-url">${post.title()|h}</a>
                   </p>
                 </div>
               </div>
@@ -58,6 +51,15 @@ ${parent.extra_head()}
             </div>
 
             <footer class="card-footer">
+              <p class="card-footer-item byline author vcard">
+                <span class="byline-name fn">
+                  % if author_pages_generated:
+                    <a href="${_link('author', post.author())}">${post.author()|h}</a>
+                  % else:
+                    ${post.author()|h}
+                  % endif
+                </span>
+              </p>
               <p class="card-footer-item dateline">
                 <a href="${post.permalink()}" rel="bookmark">
                   <time class="published dt-published" datetime="${post.formatted_date('webiso')}" title="${post.formatted_date(date_format)|h}">${post.formatted_date(date_format)|h}</time>
