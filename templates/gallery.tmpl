@@ -5,56 +5,63 @@
 <%block name="sourcelink"></%block>
 
 <%block name="content">
-<section class="section">
-  <div class="container">
-    ${ui.bar(crumbs)}
-  </div>
-</section>
+${ui.bar(crumbs)}
 
-<section class="section">
-  <div class="container">
-    %if title:
-      <h1 class="title is-1">${title|h}</h1>
-    %endif
-    %if post:
-    <p>${post.text()}</p>
-    %endif
-    %if folders:
-    <ul>
-    % for folder, ftitle in folders:
-      <li><a href="${folder}"><i
-      class="icon-folder-open"></i>&nbsp;${ftitle|h}</a></li>
-    % endfor
-    </ul>
-    %endif
-    %if photo_array:
-    <div class="columns">
-      %for image in photo_array:
-        <div class="column">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="${image['url_thumb']}" alt="${image['title']|h}" />
-              </figure>
-            </div>
-            <div class="card-content">
-              <a href="${image['url']}" class="thumbnail image-reference" title="${image['title']}">${image['title']}</a>
-            </div>
-          </div>
-        </div>
-      %endfor
+%if title:
+  <h1 class="title is-1">${title|h}</h1>
+%endif
+%if post:
+  <div class="columns">
+    <div class="column">
+      ${post.text()}
     </div>
-    %endif
   </div>
-</section>
+%endif
+%if folders:
+<div class="columns">
+  % for folder, ftitle in folders:
+    <div class="column is-one-quarter">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-square">
+            <a title="${ftitle|h}" href="${folder}">
+              <img src="/assets/img/img-480x480.png" alt="Image">
+            </a>
+          </figure>
+        </div>
+        <div class="card-content">
+          <a title="${ftitle|h}" href="${folder}">${ftitle|h}</a>
+        </div>
+      </div>
+    </div>
+  % endfor
+</div>
+%endif
+%if photo_array:
+<div class="columns">
+  %for image in photo_array:
+    <div class="column">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <a href="${image['url']}" class="thumbnail image-reference" title="${image['title']|h}">
+              <img src="${image['url_thumb']}" alt="${image['title']|h}" />
+            </a>
+          </figure>
+        </div>
+        <div class="card-content">
+          <a href="${image['url']}" class="thumbnail image-reference islink" title="${image['title']|h}">${image['title']|h}</a>
+        </div>
+      </div>
+    </div>
+  %endfor
+</div>
+%endif
 
 %if site_has_comments and enable_comments:
-<section class="section comments">
-  <div class="container">
-    <h2 class="title is-2">${messages("Comments")}</h2>
-    ${comments.comment_form(None, permalink, title)}
-  </div>
-</section>
+<section class="comments">
+  <h2 class="title is-2">${messages("Comments")}</h2>
+  ${comments.comment_form(None, permalink, title)}
 %endif
 </%block>
 

@@ -2,43 +2,31 @@
 <%inherit file="base.tmpl"/>
 <%namespace name="ui" file="crumbs.tmpl" import="bar"/>
 <%block name="content">
-<section class="section">
-  <div class="container">
-    ${ui.bar(crumbs)}
-  </div>
-</section>
+${ui.bar(crumbs)}
 
-<section class="section">
-  <div class="container">
-    %if folders or files:
-    <ul>
+%if folders or files:
+<ul>
 
-    % for name in folders:
-      <li><a href="${name|u}"><i class="icon-folder-open"></i> ${name|h}</a>
-    % endfor
+% for name in folders:
+  <li><a href="${name|u}"><i class="icon-folder-open"></i> ${name|h}</a>
+% endfor
 
-    % for name in files:
-      <li><a href="${name|u}.html"><i class="icon-file"></i> ${name|h}</a>
-    % endfor
+% for name in files:
+  <li><a href="${name|u}.html"><i class="icon-file"></i> ${name|h}</a>
+% endfor
 
-    </ul>
-    %endif
-  </div>
-</section>
+</ul>
+%endif
 
-<section class="section">
-  <div class="container">
-    % if code:
-      <h1 class="title is-1">${title}</h1>
-      % if source_link:
-        <p class="subtitle is-2">
-          <a href="${source_link}">(${messages("Source")})</a>
-        </p>
-      % endif
-      ${code}
-    % endif
-  </div>
-</section>
+% if code:
+  <h1 class="title is-1">${title}</h1>
+  % if source_link:
+    <p class="subtitle is-2">
+      <a href="${source_link}">(${messages("Source")})</a>
+    </p>
+  % endif
+  ${code}
+% endif
 </%block>
 
 

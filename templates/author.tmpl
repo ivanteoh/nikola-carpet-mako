@@ -12,43 +12,38 @@ ${parent.extra_head()}
 %endif
 </%block>
 
-
 <%block name="content">
-<section class="section">
-  <div class="container">
-    <article class="authorpage">
-      <header class="heading">
-        <h1 class="title is-1">${title|h}</h1>
-        %if description:
-          <p>${description}</p>
-        %endif
-        <div class="metadata">
-          %if len(translations) > 1 and generate_rss:
-            %for language in sorted(translations):
-            <p class="feedlink">
-              <a href="${_link(kind + "_rss", author, language)}" hreflang="${language}" type="application/rss+xml">${messages('RSS feed', language)} (${language})</a>&nbsp;
-            </p>
-            %endfor
-          %elif generate_rss:
-            <p class="feedlink"><a href="${_link(kind + "_rss", author)}" type="application/rss+xml">${messages('RSS feed')}</a></p>
-          %endif
-        </div>
-      </header>
-      %if posts:
-      <div class="postlist">
-      % for post in posts:
-        <div class="columns">
-          <div class="column is-2">
-            <time class="listdate" datetime="${post.formatted_date('webiso')}" title="${post.formatted_date(date_format)|h}">${post.formatted_date(date_format)|h}</time>
-          </div>
-          <div class="column">
-            <a href="${post.permalink()}" class="listtitle">${post.title()|h}</a>
-          </div>
-        </div>
-      % endfor
-      </div>
+<article class="authorpage">
+  <header class="heading">
+    <h1 class="title is-1">${title|h}</h1>
+    %if description:
+      <p>${description}</p>
+    %endif
+    <div class="metadata">
+      %if len(translations) > 1 and generate_rss:
+        %for language in sorted(translations):
+        <p class="feedlink">
+          <a href="${_link(kind + "_rss", author, language)}" hreflang="${language}" type="application/rss+xml">${messages('RSS feed', language)} (${language})</a>&nbsp;
+        </p>
+        %endfor
+      %elif generate_rss:
+        <p class="feedlink"><a href="${_link(kind + "_rss", author)}" type="application/rss+xml">${messages('RSS feed')}</a></p>
       %endif
-    </article>
+    </div>
+  </header>
+  %if posts:
+  <div class="postlist">
+  % for post in posts:
+    <div class="columns">
+      <div class="column is-2">
+        <time class="listdate" datetime="${post.formatted_date('webiso')}" title="${post.formatted_date(date_format)|h}">${post.formatted_date(date_format)|h}</time>
+      </div>
+      <div class="column">
+        <a href="${post.permalink()}" class="listtitle">${post.title()|h}</a>
+      </div>
+    </div>
+  % endfor
   </div>
-</section>
+  %endif
+</article>
 </%block>

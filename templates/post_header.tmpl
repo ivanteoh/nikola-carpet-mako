@@ -61,11 +61,11 @@
         </p>
       </div>
       
-      % if not post.meta('nocomments') and site_has_comments:
+      %if not post.meta('nocomments') and site_has_comments:
         <div class="level-item">
           <p class="commentline">${comments.comment_link(post.permalink(), post._base_path)}</p>
         </div>
-      % endif
+      %endif
       
       ${html_sourcelink()}
       

@@ -7,12 +7,18 @@
       %for link, text in crumbs:
         %if text != index_file:
           %if loop.first:
-            <div class="level-item home">
+            <div class="level-item icon-group home">
+              <span class="icon is-small">
+                <i class="fa fa-home" aria-hidden="true"></i>
+              </span>
           %else:
-            <div class="level-item separator">
+            <div class="level-item icon-group separator">
+              <span class="icon is-small">
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </span>
           %endif
           %if link == '#':
-            ${text.rsplit('.html', 1)[0]}
+            <span>${text.rsplit('.html', 1)[0]}</span>
           %else:
             <a href="${link}">${text}</a>
           %endif

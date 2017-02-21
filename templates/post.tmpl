@@ -36,26 +36,20 @@
 
 <%block name="content">
 <article class="post-${post.meta('type')} h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
-  <section class="section">
-    <div class="container">
-      ${pheader.html_post_header()}
-      <div class="e-content entry-content" itemprop="articleBody text">
-        ${post.text()}
-      </div>
-      <aside class="postpromonav">
-        ${helper.html_tags(post)}
-        ${helper.html_pager(post)}
-      </aside>
-    </div>
-  </section>
-  % if not post.meta('nocomments') and site_has_comments:
-    <section class="section comments comments hidden-print">
-      <div class="container">
-        <h2 class="title is-2">${messages("Comments")}</h2>
-        ${comments.comment_form(post.permalink(absolute=True), post.title(), post._base_path)}
-      </div>
+  ${pheader.html_post_header()}
+  <div class="e-content entry-content" itemprop="articleBody text">
+    ${post.text()}
+  </div>
+  <aside class="postpromonav">
+    ${helper.html_tags(post)}
+    ${helper.html_pager(post)}
+  </aside>
+  %if site_has_comments and enable_comments and not post.meta('nocomments'):
+    <section class="comments hidden-print">
+      <h2 class="title is-2">${messages("Comments")}</h2>
+      ${comments.comment_form(post.permalink(absolute=True), post.title(), post._base_path)}
     </section>
-  % endif
+  %endif
   ${helper.mathjax_script(post)}
 </article>
 ${comments.comment_link_script()}
