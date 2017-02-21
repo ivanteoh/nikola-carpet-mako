@@ -40,5 +40,5 @@ jspm_packages
 .sass-cache
 
 # Style
-*.css
-*.css.map
+assets/css
+assets/fonts

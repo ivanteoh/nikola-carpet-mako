@@ -9,6 +9,7 @@ NPM ?= $(NODE) $(shell which npm)
 build:
 	@$(NPM) run build
 	@cp -R $(FONTAWSSOME_DIR)/css $(DIST_DIR)
+	@cp -R $(FONTAWSSOME_DIR)/fonts $(DIST_DIR)
 
 # NPM
 install:
