@@ -27,16 +27,24 @@
       %endfor
     </ul>
     %endif
-    <div class="metadata">
-      %if len(translations) > 1 and generate_rss:
-        %for language in sorted(translations):
-        <p class="feedlink">
-          <a href="${_link(kind + "_rss", tag, language)}" hreflang="${language}" type="application/rss+xml">${messages('RSS feed', language)} (${language})</a>&nbsp;
-        </p>
-        %endfor
-      %elif generate_rss:
-        <p class="feedlink"><a href="${_link(kind + "_rss", tag)}" type="application/rss+xml">${messages('RSS feed')}</a></p>
-      %endif
+    <div class="metadata level">
+      <div class="level-left">
+        %if len(translations) > 1 and generate_rss:
+          %for language in sorted(translations):
+          <div class="level-item">
+            <p class="feedlink">
+              <a href="${_link(kind + "_rss", tag, language)}" hreflang="${language}" type="application/rss+xml">${messages('RSS feed', language)} (${language})</a>&nbsp;
+            </p>
+          </div>
+          %endfor
+        %elif generate_rss:
+          <div class="level-item">
+            <p class="feedlink">
+              <a href="${_link(kind + "_rss", tag)}" type="application/rss+xml">${messages('RSS feed')}</a>
+            </p>
+          </div>
+        %endif
+      </div>
     </div>
   </header>
   %if posts:
