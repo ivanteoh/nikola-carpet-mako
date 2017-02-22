@@ -87,7 +87,7 @@ a.book-figure-title {
 }
 /* youtube-video END */
 
-/* post type image */
+/* post type image START */
 .post-card .post-image {
     background-color: $primary;
 }
@@ -106,3 +106,10 @@ a.book-figure-title {
 .post-quote .post-image {
     background-image: url("/assets/img/quote-right-48x48.png");
 }
+/* post type image END */
+
+/* gallery folder image START */
+.gallery-folder .gallery-folder-image {
+    background-color: $primary;
+}
+/* gallery folder image END */

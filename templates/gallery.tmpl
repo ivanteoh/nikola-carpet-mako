@@ -12,22 +12,18 @@ ${ui.bar(crumbs)}
 %endif
 %if post:
   <div class="columns">
-    <div class="column content">
+    <div class="column content gallery-post">
       ${post.text()}
     </div>
   </div>
 %endif
 %if folders:
-<div class="columns">
+<div class="columns gallery-folders">
   % for folder, ftitle in folders:
-    <div class="column is-one-quarter">
+    <div class="column is-one-quarter gallery-folder">
       <div class="card">
         <div class="card-image">
-          <figure class="image is-square">
-            <a title="${ftitle|h}" href="${folder}">
-              <img src="/assets/img/img-480x480.png" alt="Image">
-            </a>
-          </figure>
+          <figure class="image is-square gallery-folder-image"></figure>
         </div>
         <div class="card-content">
           <a title="${ftitle|h}" href="${folder}">${ftitle|h}</a>
@@ -38,10 +34,10 @@ ${ui.bar(crumbs)}
 </div>
 %endif
 %if photo_array:
-<div class="columns">
+<div class="columns gallery-photos">
   %for image in photo_array:
-    <div class="column">
-      <div class="card">
+    <div class="column gallery-photo">
+      <div class="card gallery-card">
         <div class="card-image">
           <figure class="image">
             <img src="${image['url_thumb']}" alt="${image['title']|h}" />
