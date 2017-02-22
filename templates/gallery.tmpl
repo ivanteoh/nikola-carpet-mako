@@ -43,19 +43,50 @@ ${ui.bar(crumbs)}
     <div class="column">
       <div class="card">
         <div class="card-image">
-          <figure class="image is-4by3">
-            <a href="${image['url']}" class="thumbnail image-reference" title="${image['title']|h}">
-              <img src="${image['url_thumb']}" alt="${image['title']|h}" />
-            </a>
+          <figure class="image">
+            <img src="${image['url_thumb']}" alt="${image['title']|h}" />
           </figure>
         </div>
         <div class="card-content">
-          <a href="${image['url']}" class="thumbnail image-reference islink" title="${image['title']|h}">${image['title']|h}</a>
+          <p class="title is-4">${image['title']|h}</p>
         </div>
+        <footer class="card-footer">
+          <a class="card-footer-item image-button" data-target="photo-array-${loop.index}">View</a>
+        </footer>
+      </div>
+      <div id="photo-array-${loop.index}" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <p class="image">
+            <img src="${image['url']}">
+          </p>
+        </div>
+        <button class="modal-close image-close" data-target="photo-array-${loop.index}"></button>
       </div>
     </div>
   %endfor
 </div>
+<script type="text/javascript">
+var handleClick = function(event) {
+  var attribute = this.getAttribute('data-target');
+  var myModal = document.getElementById(attribute);
+  var className = ' ' + myModal.className + ' ';
+  var IS_ACTIVE_CLASS = 'is-active';
+  if ( ~className.indexOf(' ' + IS_ACTIVE_CLASS + ' ') ) {
+    myModal.className = className.replace(' ' + IS_ACTIVE_CLASS + ' ', ' ');
+  } else {
+    myModal.className += ' ' + IS_ACTIVE_CLASS;
+  }
+};
+function addEventListenerByClass(className, event, fn) {
+  var list = document.getElementsByClassName(className);
+  for (var i = 0, len = list.length; i < len; i++) {
+      list[i].addEventListener(event, fn, false);
+  }
+}
+addEventListenerByClass('image-button', 'click', handleClick);
+addEventListenerByClass('image-close', 'click', handleClick); 
+</script>
 %endif
 
 %if site_has_comments and enable_comments:

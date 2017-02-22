@@ -86,3 +86,23 @@ a.book-figure-title {
     text-align: center;
 }
 /* youtube-video END */
+
+/* post type image */
+.post-card .post-image {
+    background-color: $primary;
+}
+.post-text .post-image {
+    background-image: url("/assets/img/file-text-o-48x48.png");
+}
+.post-photo .post-image {
+    background-image: url("/assets/img/file-photo-o-48x48.png");
+}
+.post-link .post-image {
+    background-image: url("/assets/img/link-48x48.png");
+}
+.post-book .post-image {
+    background-image: url("/assets/img/bookmark-o-48x48.png");
+}
+.post-quote .post-image {
+    background-image: url("/assets/img/quote-right-48x48.png");
+}

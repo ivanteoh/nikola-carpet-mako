@@ -26,6 +26,7 @@ Edit ``conf.py`` for setting these values below:
 * [Mako](http://www.makotemplates.org/) 
 * [Bulma] (http://bulma.io/)
 * [Font Awesome] (http://fontawesome.io/)
+* [Font-Awesome-SVG-PNG] (https://github.com/encharm/Font-Awesome-SVG-PNG)
 
 ## License
 
@@ -43,3 +44,6 @@ Bulma [MIT License]
 
 Font Awesome [Full details]
 (http://fontawesome.io/license/)
+
+Font-Awesome-SVG-PNG [MIT License]
+(https://github.com/encharm/Font-Awesome-SVG-PNG/blob/master/LICENSE)

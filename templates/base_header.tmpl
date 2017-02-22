@@ -97,7 +97,7 @@ ${template_hooks['menu_alt']()}
 document.getElementById('nav-toggle-burger').onclick = function() {
   var myMenu = document.getElementById('menu');
   var className = ' ' + myMenu.className + ' ';
-  var IS_ACTIVE_CLASS = 'is-active'
+  var IS_ACTIVE_CLASS = 'is-active';
   if ( ~className.indexOf(' ' + IS_ACTIVE_CLASS + ' ') ) {
     myMenu.className = className.replace(' ' + IS_ACTIVE_CLASS + ' ', ' ');
   } else {

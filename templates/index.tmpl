@@ -23,15 +23,13 @@ ${parent.extra_head()}
   % for post in posts:
     <div class="columns">
       <div class="column">
-        <div class="card">
+        <div class="card post-card">
           <article class="h-entry post-${post.meta('type')}">
             
             <div class="card-content">
               <div class="media metadata">
                 <div class="media-left">
-                  <figure class="image is-48x48">
-                    <img src="/assets/img/type-96x96.png" alt="Image">
-                  </figure>
+                  <figure class="image is-48x48 post-image"></figure>
                 </div>
                 <div class="media-content">
                   <p class="title is-2 p-name entry-title">
