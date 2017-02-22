@@ -16,6 +16,17 @@ Edit ``conf.py`` for setting these values below:
 
 * ``THEME = "carpet"``
 
+## Extra Global Context
+
+* ``carpet__show_hero`` -
+* ``carpet__hero_size`` -
+* ``carpet__hero_footer`` -
+
+## Extra Metadata
+
+* ``show-hero`` -
+* ``hero-class`` -
+
 ## Known Issues
 
 * Not all features of Nikola are tested
