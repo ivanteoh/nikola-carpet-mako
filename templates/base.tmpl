@@ -32,7 +32,9 @@ ${template_hooks['extra_head']()}
       %endif
     </%block>
     <!-- Hero footer: will stick at the bottom -->
-    ${carpet__hero_footer}
+    %if carpet__hero_footer:
+      ${carpet__hero_footer}
+    %endif
   </section>
   <main id="content" class="section">
     <div class="container">
