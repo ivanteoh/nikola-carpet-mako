@@ -25,17 +25,22 @@ ${parent.extra_head()}
       <div class="column">
         <div class="card post-card">
           <article class="h-entry post-${post.meta('type')}">
-            
             <div class="card-content">
               <div class="media metadata">
-                <div class="media-left">
-                  <figure class="image is-48x48 post-image"></figure>
-                </div>
                 <div class="media-content">
                   <p class="title is-2 p-name entry-title">
                     <a href="${post.permalink()}" class="u-url">${post.title()|h}</a>
                   </p>
                 </div>
+                %if carpet__post_type:
+                  <div class="media-right">
+                    <span class="icon">
+                      <i class="fa ${carpet__post_type[post.meta('type')]}"
+                        aria-hidden="true"></i>
+                    </span>
+                    <span class="visuallyhidden">${post.meta('type')}</span>
+                  </div>
+                %endif
               </div>
               %if index_teasers:
                 <div class="content p-summary entry-summary">
