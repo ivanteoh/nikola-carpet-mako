@@ -38,8 +38,12 @@
 %if post.meta('show-hero'):
   <div class="hero-body ${post.meta('hero-class')}">
     <div class="container has-text-centered">
-      <h1 class="title">${post.meta('title')|h}</h1>
-      <h2 class="subtitle">${post.meta('description')|h}</h2>
+      %if post.meta('hero-title'):
+        <p class="title">${post.meta('hero-title')|h}</p>
+      %endif
+      %if post.meta('hero-subtitle'):
+        <p class="subtitle">${post.meta('hero-subtitle')|h}</p>
+      %endif
     </div>
   </div>
 %endif
