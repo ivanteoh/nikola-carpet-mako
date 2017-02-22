@@ -1,14 +1,18 @@
 ## -*- coding: utf-8 -*-
 <%def name="html_pager()">
 %if prevlink or nextlink:
-  <nav class="section pagination postindexpager pager">
-    %if prevlink:
-      <a class="pagination-previous previous"href="${prevlink}" rel="prev">${messages("Newer posts")}</a>
-    %endif
-    %if nextlink:
-      <a class="pagination-next next" href="${nextlink}" rel="next">${messages("Older posts")}</a>
-    %endif
-  </nav>
+  <div class="columns">
+    <div class="column">
+      <nav class="pagination postindexpager pager">
+        %if prevlink:
+          <a class="pagination-previous previous"href="${prevlink}" rel="prev">${messages("Newer posts")}</a>
+        %endif
+        %if nextlink:
+          <a class="pagination-next next" href="${nextlink}" rel="next">${messages("Older posts")}</a>
+        %endif
+      </nav>
+    </div>
+  </div>
 %endif
 </%def>
 
