@@ -13,7 +13,27 @@ ${template_hooks['extra_head']()}
 <body>
 <a href="#content" class="sr-only sr-only-focusable">${messages("Skip to main content")}</a>
 <div id="container">
-  ${header.html_header()}
+  %if carpet__hero_size:
+    <section class="hero is-primary ${carpet__hero_size}">
+  %else:
+    <section class="hero is-primary">
+  %endif
+    <!-- Hero header: will stick at the top -->
+    ${header.html_header()}
+    <!-- Hero content: will be in the middle -->
+    <%block name="html_hero_body">
+      %if carpet__show_hero:
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <h1 class="title">${blog_title|h}</h1>
+            <h2 class="subtitle">${blog_description|h}</h2>
+          </div>
+        </div>
+      %endif
+    </%block>
+    <!-- Hero footer: will stick at the bottom -->
+    ${carpet__hero_footer}
+  </section>
   <main id="content" class="section">
     <div class="container">
       <%block name="content"></%block>

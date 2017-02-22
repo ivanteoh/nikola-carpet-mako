@@ -2,24 +2,18 @@
 <%namespace name="base" file="base_helper.tmpl" import="*"/>
 
 <%def name="html_header()">
-<section class="hero is-primary is-medium">
-  <!-- Hero header: will stick at the top -->
-  <div class="hero-head">
-    <header  id="header" class="nav">
-      <div class="container">
-        <div class="nav-left">
-          ${html_site_title()}
-          ${html_translation_header()}
-        </div>
-        ${html_navigation_links()}
+<div class="hero-head">
+  <header  id="header" class="nav">
+    <div class="container">
+      <div class="nav-left">
+        ${html_site_title()}
+        ${html_translation_header()}
       </div>
-    </header>
-  </div>
-  <!-- Hero content: will be in the middle -->
-  ${html_hero_body()}
-  <!-- Hero footer: will stick at the bottom -->
-</section>
-${template_hooks['page_header']()}
+      ${html_navigation_links()}
+      ${template_hooks['page_header']()}
+    </div>
+  </header>
+</div>
 </%def>
 
 <%def name="html_search()">
@@ -50,17 +44,6 @@ ${template_hooks['page_header']()}
     </a>
   </h1>
 </div>
-</%def>
-
-<%def name="html_hero_body()">
-%if blog_description:
-  <div class="hero-body">
-    <div class="container has-text-centered">
-      <h1 class="title">${blog_title|h}</h1>
-      <h2 class="subtitle">${blog_description|h}</h2>
-    </div>
-  </div>
-%endif
 </%def>
 
 <%def name="html_navigation_links()">
