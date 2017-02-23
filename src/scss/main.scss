@@ -1,105 +1,116 @@
 @import "bulma";
 
-.is-brand {
-    padding-left: 0;
-}
-
 .visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
-.icon-group .icon {
-    margin-right: 0.5em
+/* brand logo title START */
+.site-image {
+  margin-right: 0.5em;
 }
+/* brand logo title END */
+
+/* breadcrumbs START */
+.icon-group .icon {
+  margin-right: 0.5em;
+}
+/* breadcrumbs END */
 
 /* screen reader START */
 .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 .sr-only-focusable:active,
 .sr-only-focusable:focus {
-    position: static;
-    width: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    clip: auto;
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
 }
 /* screen reader END */
 
 /* link-figure START */
 .link-figure {
-    @extend .box;
-    @extend .media;
+  @extend .box;
+  @extend .media;
 }
 .link-figure-media {
-    @extend .media-left;
+  @extend .media-left;
 }
 .link-figure-image {
-    @extend .image;
+  @extend .image;
 }
 .link-figure-image {
-    @extend .media-content;
+  @extend .media-content;
 }
 .link-figure-title {
-    @extend .title;
-    @extend .is-3;
+  @extend .title;
+  @extend .is-3;
 }
 a.link-figure-title {
-    @extend a;
+  @extend a;
 }
 .link-figure-author {
-    float: right;
+  float: right;
 }
 /* link-figure END */
 
 /* book-figure START */
 .book-figure {
-    @extend .link-figure;
+  @extend .link-figure;
 }
 .book-figure-media {
-    @extend .link-figure-media;
-    .book-figure-image {
-        img {
-            width: 180px;
-            height: auto;
-        }
+  @extend .link-figure-media;
+  .book-figure-image {
+    img {
+      width: 180px;
+      height: auto;
     }
+  }
 }
 .book-figure-title {
-    @extend .link-figure-title;
+  @extend .link-figure-title;
 }
 a.book-figure-title {
-    @extend a.link-figure-title;
+  @extend a.link-figure-title;
 }
 .book-figure-book-number,
 .book-figure-review {
-    margin: 0 0 10px;
+  margin-bottom: 0.5em;
 }
 /* book-figure END */
 
 /* youtube-video START */
 .youtube-video {
-    text-align: center;
+  text-align: center;
 }
 /* youtube-video END */
 
 /* gallery folder image START */
 .gallery-folder .gallery-folder-image {
-    background-color: $primary;
+  background-color: $primary;
 }
 /* gallery folder image END */
+
+/* footer START */
+.footer .cc-license {
+  border-width:0;
+  vertical-align: middle;
+}
+/* footer END */
