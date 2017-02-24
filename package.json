@@ -9,7 +9,7 @@
     "build-autoprefix": "postcss --use autoprefixer --output assets/css/styles.css assets/css/styles.css",
     "build-sass": "node-sass --output-style expanded --source-map true --include-path lib/bulma src/scss/styles.scss assets/css/styles.css",
     "build-min-autoprefix": "postcss --use autoprefixer --output assets/css/styles.min.css assets/css/styles.min.css",
-    "build-min-sass": "node-sass --output-style compressed --source-map false --include-path lib/bulma src/scss/styles.scss assets/css/styles.min.css",
+    "build-min-sass": "node-sass --output-style compressed --include-path lib/bulma src/scss/styles.scss assets/css/styles.min.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
