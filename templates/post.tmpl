@@ -44,23 +44,6 @@
 <%block name="html_hero_body">
 %if not carpet__hero_post_title:
   ${parent.html_hero_body()}
-%elif post.meta('show-hero') == 'default':
-  %if title:
-    <div class="hero-body hero-${title|lower,h,trim}">
-  %else:
-    <div class="hero-body hero-${title|lower,h,trim} ${post.meta('hero-class')}">
-  %endif
-  %if post.meta('title') or post.meta('description'):
-  <div class="container has-text-centered">
-    %if post.meta('title'):
-      <p class="title">${post.meta('title')|h}</p>
-    %endif
-    %if post.meta('description'):
-      <p class="subtitle">${post.meta('description')|h}</p>
-    %endif
-  </div>
-  %endif
-  </div>
 %elif post.meta('show-hero') == 'custom':
   %if title:
     <div class="hero-body hero-${title|lower,h,trim}">
@@ -74,6 +57,23 @@
     %endif
     %if post.meta('hero-description'):
       <p class="subtitle">${post.meta('hero-description')|h}</p>
+    %endif
+  </div>
+  %endif
+  </div>
+%elif post.meta('show-hero'):
+  %if title:
+    <div class="hero-body hero-${title|lower,h,trim}">
+  %else:
+    <div class="hero-body hero-${title|lower,h,trim} ${post.meta('hero-class')}">
+  %endif
+  %if post.meta('title') or post.meta('description'):
+  <div class="container has-text-centered">
+    %if post.meta('title'):
+      <p class="title">${post.meta('title')|h}</p>
+    %endif
+    %if post.meta('description'):
+      <p class="subtitle">${post.meta('description')|h}</p>
     %endif
   </div>
   %endif
