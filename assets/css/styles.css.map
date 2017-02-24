@@ -1,8 +1,8 @@
 {
 	"version": 3,
-	"file": "style.css",
+	"file": "styles.css",
 	"sources": [
-		"../../src/scss/style.scss",
+		"../../src/scss/styles.scss",
 		"../../src/scss/main.scss",
 		"../../lib/bulma/bulma.sass",
 		"../../lib/bulma/sass/utilities/_all.sass",
