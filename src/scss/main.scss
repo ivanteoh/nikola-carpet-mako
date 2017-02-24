@@ -1,3 +1,10 @@
+/* Override any of variables, just set them before importing Bulma. 
+
+For example the example below is changing primary color to other color. 
+$primary: #445826;
+*/
+$primary: #445826;
+
 @import "bulma";
 
 .visuallyhidden {
