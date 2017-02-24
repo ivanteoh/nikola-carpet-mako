@@ -55,6 +55,9 @@ $primary: #445826;
 /* link-figure START */
 .link-figure {
   @extend .columns;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 .link-figure-media {
   @extend .column;
