@@ -32,30 +32,36 @@
 %endif
 </%def>
 
+<%def name="html_site_header()">
+%if logo_url or show_blog_title:
+  <span class="level is-mobile">
+%endif
+
+%if logo_url:
+  <span class="level-item image is-24x24 site-image">
+    <img id="logo" class="site-logo" src="${logo_url}" alt="${blog_title|h}">
+  </span>
+%endif
+
+%if show_blog_title:
+  <span id="blog-title" class="level-item site-title">${blog_title|h}</span>
+%elif logo_url:
+  <span id="blog-title" class="level-item site-title visuallyhidden">${blog_title|h}</span>
+%endif
+
+%if logo_url or show_blog_title:
+  </span>
+%endif
+</%def>
+
 <%def name="html_site_title()">
 <div class="nav-item is-brand">
   <h1 id="brand" class="site-header">
-    %if not carpet__blog_title_not_link:
+    %if carpet__unlink_blog_brand:
+      ${html_site_header()}
+    %else:
       <a href="${abs_link(_link("root", None, lang))}" title="${blog_title|h}" rel="home">
-    %endif
-      %if logo_url or show_blog_title:
-        <span class="level is-mobile">
-      %endif
-      %if logo_url:
-        <span class="level-item image is-24x24 site-image">
-          <img id="logo" class="site-logo" src="${logo_url}" alt="${blog_title|h}">
-        </span>
-      %endif
-
-      %if show_blog_title:
-        <span id="blog-title" class="level-item site-title">${blog_title|h}</span>
-      %elif logo_url:
-        <span id="blog-title" class="level-item site-title visuallyhidden">${blog_title|h}</span>
-      %endif
-      %if logo_url or show_blog_title:
-        </span>
-      %endif
-    %if not carpet__blog_title_not_link:
+        ${html_site_header()}
       </a>
     %endif
   </h1>
