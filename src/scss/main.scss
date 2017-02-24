@@ -54,17 +54,17 @@ $primary: #445826;
 
 /* link-figure START */
 .link-figure {
-  @extend .box;
-  @extend .media;
+  @extend .columns;
 }
 .link-figure-media {
-  @extend .media-left;
+  @extend .column;
+  @extend .is-one-quarter;
 }
 .link-figure-image {
   @extend .image;
 }
-.link-figure-image {
-  @extend .media-content;
+.link-figure-content {
+  @extend .column;
 }
 .link-figure-title {
   @extend .title;
