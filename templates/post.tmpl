@@ -42,7 +42,9 @@
 </%block>
 
 <%block name="html_hero_body">
-%if post.meta('show-hero'):
+%if not carpet__hero_post_title:
+  ${parent.html_hero_body()}
+%elif post.meta('show-hero'):
   %if title:
     <div class="hero-body hero-${title|lower,h,trim}">
   %else:
