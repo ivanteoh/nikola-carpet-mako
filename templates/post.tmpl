@@ -3,7 +3,14 @@
 <%namespace name="pheader" file="post_header.tmpl"/>
 <%namespace name="comments" file="comments_helper.tmpl"/>
 <%inherit file="base.tmpl"/>
-
+<%!
+  import re
+  def lower(text):
+    # remove all non-alphabet chars from string
+    regex = re.compile('[^a-zA-Z0-9]')
+    result = regex.sub('', text)
+    return result.lower()
+%>
 <%block name="extra_head">
   ${parent.extra_head()}
   
@@ -36,7 +43,12 @@
 
 <%block name="html_hero_body">
 %if post.meta('show-hero'):
-  <div class="hero-body ${post.meta('hero-class')}">
+  %if title:
+    <div class="hero-body hero-${title|lower,h,trim}">
+  %else:
+    <div class="hero-body hero-${title|lower,h,trim} ${post.meta('hero-class')}">
+  %endif
+    %if post.meta('hero-title') or post.meta('hero-subtitle'):
     <div class="container has-text-centered">
       %if post.meta('hero-title'):
         <p class="title">${post.meta('hero-title')|h}</p>
@@ -45,6 +57,7 @@
         <p class="subtitle">${post.meta('hero-subtitle')|h}</p>
       %endif
     </div>
+    %endif
   </div>
 %endif
 </%block>

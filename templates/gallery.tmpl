@@ -18,9 +18,9 @@ ${ui.bar(crumbs)}
   </div>
 %endif
 %if folders:
-<div class="columns gallery-folders">
+<div class="columns is-multiline gallery-folders">
   % for folder, ftitle in folders:
-    <div class="column is-one-quarter gallery-folder">
+    <div class="column is-2 gallery-folder">
       <div class="card">
         <div class="card-image">
           <figure class="image is-square gallery-folder-image"></figure>
@@ -34,9 +34,9 @@ ${ui.bar(crumbs)}
 </div>
 %endif
 %if photo_array:
-<div class="columns gallery-photos">
+<div class="columns is-multiline gallery-photos">
   %for image in photo_array:
-    <div class="column gallery-photo">
+    <div class="column is-2 gallery-photo">
       <div class="card gallery-card">
         <div class="card-image">
           <figure class="image">
