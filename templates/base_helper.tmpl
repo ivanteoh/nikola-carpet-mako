@@ -82,17 +82,7 @@ lang="${lang}">
 </%def>
 
 <%def name="html_stylesheets()">
-%if use_bundles and carpet__inline_import_style:
-  %if use_cdn:
-    <style type="text/css">
-      @import url("/assets/css/all.css");
-    </style>
-  %else:
-    <style type="text/css">
-      @import url("/assets/css/all-nocdn.css");
-    </style>
-  %endif
-%elif use_bundles:
+%if use_bundles:
   %if use_cdn:
     <link href="/assets/css/all.css" rel="stylesheet" type="text/css">
   %else:
