@@ -73,12 +73,47 @@ lang="${lang}">
   %endif
 
   ${extra_head_data}
+  %if carpet__late_load_css:
+    ${base.late_load_css()}
+  %endif
 </%def>
 
 <%def name="late_load_css()">
+    ${preload_stylesheets()}
     <noscript id="deferred-styles">
         ${html_stylesheets()}
     </noscript>
+</%def>
+
+<%def name="preload_stylesheets()">
+%if use_bundles:
+  %if use_cdn:
+    <link rel="preload" type="text/css" as="style" onload="this.rel='stylesheet'"
+      href="/assets/css/all.css">
+  %else:
+    <link rel="preload" type="text/css" as="style" onload="this.rel='stylesheet'"
+      href="/assets/css/all-nocdn.css">
+  %endif
+%else:
+  <link rel="preload" type="text/css" as="style" onload="this.rel='stylesheet'"
+    href="/assets/css/rst.css">
+  <link rel="preload" type="text/css" as="style" onload="this.rel='stylesheet'"
+    href="/assets/css/code.css">
+  <link rel="preload" type="text/css" as="style" onload="this.rel='stylesheet'"
+    href="/assets/css/font-awesome.css">
+  <link rel="preload" type="text/css" as="style" onload="this.rel='stylesheet'"
+    href="/assets/css/style.css">
+  %if has_custom_css:
+    <link rel="preload" type="text/css" as="style" onload="this.rel='stylesheet'"
+      href="/assets/css/custom.css">
+  %endif
+%endif
+% if needs_ipython_css:
+  <link rel="preload" type="text/css" as="style" onload="this.rel='stylesheet'"
+    href="/assets/css/ipython.min.css">
+  <link rel="preload" type="text/css" as="style" onload="this.rel='stylesheet'"
+    href="/assets/css/nikola_ipython.css">
+% endif
 </%def>
 
 <%def name="html_stylesheets()">
@@ -140,19 +175,7 @@ lang="${lang}">
 
 <%def name="late_load_js()">
   %if carpet__late_load_css:
-    <script>
-      var loadDeferredStyles = function() {
-        var addStylesNode = document.getElementById("deferred-styles");
-        var replacement = document.createElement("div");
-        replacement.innerHTML = addStylesNode.textContent;
-        document.body.appendChild(replacement)
-        addStylesNode.parentElement.removeChild(addStylesNode);
-      };
-      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-          webkitRequestAnimationFrame || msRequestAnimationFrame;
-      if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
-      else window.addEventListener('load', loadDeferredStyles);
-    </script>
+    <script>!function(e){"use strict";var t=function(t,n,r){function o(e){return i.body?e():void setTimeout(function(){o(e)})}function a(){d.addEventListener&&d.removeEventListener("load",a),d.media=r||"all"}var l,i=e.document,d=i.createElement("link");if(n)l=n;else{var s=(i.body||i.getElementsByTagName("head")[0]).childNodes;l=s[s.length-1]}var u=i.styleSheets;d.rel="stylesheet",d.href=t,d.media="only x",o(function(){l.parentNode.insertBefore(d,n?l:l.nextSibling)});var f=function(e){for(var t=d.href,n=u.length;n--;)if(u[n].href===t)return e();setTimeout(function(){f(e)})};return d.addEventListener&&d.addEventListener("load",a),d.onloadcssdefined=f,f(a),d};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this),function(e){if(e.loadCSS){var t=loadCSS.relpreload={};if(t.support=function(){try{return e.document.createElement("link").relList.supports("preload")}catch(e){return!1}},t.poly=function(){for(var t=e.document.getElementsByTagName("link"),n=0;n<t.length;n++){var r=t[n];"preload"===r.rel&&"style"===r.getAttribute("as")&&(e.loadCSS(r.href,r),r.rel=null)}},!t.support()){t.poly();var n=e.setInterval(t.poly,300);e.addEventListener&&e.addEventListener("load",function(){t.poly(),e.clearInterval(n)}),e.attachEvent&&e.attachEvent("onload",function(){e.clearInterval(n)})}}}(this);</script>
   %endif
   ${social_buttons_code}
 </%def>
