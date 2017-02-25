@@ -38,7 +38,6 @@ lang="${lang}">
     <title>${title|h} | ${blog_title|h}</title>
   %endif
 
-  ${html_stylesheets()}
   <meta name="theme-color" content="${theme_color}">
   <meta name="generator" content="Nikola (getnikola.com)">
   ${html_feedlinks()}
@@ -61,6 +60,10 @@ lang="${lang}">
   %if nextlink:
     <link rel="next" href="${nextlink}" type="text/html">
   %endif
+  
+  %if not mdl__late_load_css:
+      ${html_stylesheets()}
+  %endif
 
   ${mathjax_config}
   %if use_cdn:
@@ -72,8 +75,10 @@ lang="${lang}">
   ${extra_head_data}
 </%def>
 
-<%def name="late_load_js()">
-  ${social_buttons_code}
+<%def name="late_load_css()">
+    <noscript id="deferred-styles">
+        ${html_stylesheets()}
+    </noscript>
 </%def>
 
 <%def name="html_stylesheets()">
@@ -141,4 +146,23 @@ lang="${lang}">
     %endif
   %endfor
 </ul>
+</%def>
+
+<%def name="late_load_js()">
+  %if mdl__late_load_css:
+    <script>
+      var loadDeferredStyles = function() {
+        var addStylesNode = document.getElementById("deferred-styles");
+        var replacement = document.createElement("div");
+        replacement.innerHTML = addStylesNode.textContent;
+        document.body.appendChild(replacement)
+        addStylesNode.parentElement.removeChild(addStylesNode);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+      else window.addEventListener('load', loadDeferredStyles);
+    </script>
+  %endif
+  ${social_buttons_code}
 </%def>
