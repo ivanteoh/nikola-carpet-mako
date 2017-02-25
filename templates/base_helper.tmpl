@@ -74,15 +74,15 @@ lang="${lang}">
 
   ${extra_head_data}
   %if carpet__late_load_css:
-    ${base.late_load_css()}
+    ${late_load_css()}
   %endif
 </%def>
 
 <%def name="late_load_css()">
-    ${preload_stylesheets()}
-    <noscript id="deferred-styles">
-        ${html_stylesheets()}
-    </noscript>
+  ${preload_stylesheets()}
+  <noscript id="deferred-styles">
+      ${html_stylesheets()}
+  </noscript>
 </%def>
 
 <%def name="preload_stylesheets()">
