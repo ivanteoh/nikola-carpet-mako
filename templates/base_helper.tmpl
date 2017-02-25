@@ -61,7 +61,7 @@ lang="${lang}">
     <link rel="next" href="${nextlink}" type="text/html">
   %endif
   
-  %if not mdl__late_load_css:
+  %if not carpet__late_load_css:
       ${html_stylesheets()}
   %endif
 
@@ -139,7 +139,7 @@ lang="${lang}">
 </%def>
 
 <%def name="late_load_js()">
-  %if mdl__late_load_css:
+  %if carpet__late_load_css:
     <script>
       var loadDeferredStyles = function() {
         var addStylesNode = document.getElementById("deferred-styles");
