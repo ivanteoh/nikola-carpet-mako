@@ -62,7 +62,7 @@ lang="${lang}">
   %endif
   
   %if not carpet__late_load_css:
-      ${html_stylesheets()}
+    ${html_stylesheets()}
   %endif
 
   ${mathjax_config}
@@ -81,7 +81,7 @@ lang="${lang}">
 <%def name="late_load_css()">
   ${preload_stylesheets()}
   <noscript id="deferred-styles">
-      ${html_stylesheets()}
+    ${html_stylesheets()}
   </noscript>
 </%def>
 
