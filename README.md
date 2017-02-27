@@ -21,8 +21,8 @@ Edit ``conf.py`` for setting these values below:
 
 Default extra global context values:
 
-```
-"GLOBAL_CONTEXT": {
+```python
+GLOBAL_CONTEXT = {
      "carpet__unlink_blog_brand": False,
      "carpet__show_hero": False,
      "carpet__show_hero_title": False,
@@ -33,7 +33,7 @@ Default extra global context values:
      "carpet__breadcrumb_home": "",
      "carpet__breadcrumb_separator": "",
      "carpet__post_type": {},
-},
+}
 ```
 
 Extra Metadata
@@ -49,10 +49,10 @@ By default, the blog brand is a link for either blog logo or/and blog title by
 having values on **[configuration file](https://getnikola.com/conf.html)**. For
 example,
 
-```
-"BLOG_TITLE": AUTHOR_NAME,
-"LOGO_URL": "/logo.png",
-"SHOW_BLOG_TITLE": True,
+```python
+BLOG_TITLE = AUTHOR_NAME
+LOGO_URL = "/logo.png"
+SHOW_BLOG_TITLE = True
 ```
 
 If you don't want them to be a link, set ``carpet__unlink_blog_brand`` to
@@ -104,37 +104,33 @@ There are few sizes come with [Bulma](http://bulma.io/) Hero, ``is-medium``,
 
 If you like to have Hero footer, add value to ``carpet__hero_footer``.
 
-### carpet__show_hero_title
-### carpet__hero_post_title
-
-### carpet__late_load_css
-### carpet__breadcrumb_home
-### carpet__breadcrumb_separator
-### carpet__post_type
-
 ## Breadcrumb
 
 Be default, breadcrumb doesn't have any icons. If you like to have icons on either breadcrumb home and/or separators, here are the example values:
 
-```
-"carpet__breadcrumb_home": "fa-home",
-"carpet__breadcrumb_separator": "fa-angle-right",
+```python
+GLOBAL_CONTEXT = {
+  "carpet__breadcrumb_home": "fa-home",
+  "carpet__breadcrumb_separator": "fa-angle-right"
+}
 ```
 
 ## Post type
 
 If you are using post type features, you can have different icons for different post types. Below are examples values:
 
-```
-"carpet__post_type": {
-    "text": "fa-file-text-o",
-    "quote": "fa-quote-right",
-    "book": "fa-book",
-    "recipe": "fa-bookmark",
-    "link": "fa-link",
-    "video": "fa-film",
-    "photo": "fa-image-o"
-},
+```python
+GLOBAL_CONTEXT = {
+  "carpet__post_type": {
+      "text": "fa-file-text-o",
+      "quote": "fa-quote-right",
+      "book": "fa-book",
+      "recipe": "fa-bookmark",
+      "link": "fa-link",
+      "video": "fa-film",
+      "photo": "fa-image-o"
+  }
+}
 ```
 
 ## Custom colour theme
@@ -180,6 +176,7 @@ tool. Here are the steps:
 ## Known Issues
 
 * Not all features of Nikola are tested
+* Value of ``THEME_COLOR`` is not used
 
 ## Todo list
 
