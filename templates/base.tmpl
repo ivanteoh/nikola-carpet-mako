@@ -54,11 +54,17 @@ ${template_hooks['extra_head']()}
       ${carpet__hero_footer}
     %endif
   </section>
+  %if carpet__content_prefix:
+    ${carpet__content_prefix}
+  %endif
   <main id="content" class="section">
     <div class="container">
       <%block name="content"></%block>
     </div>
   </main>
+  %if carpet__content_suffix:
+    ${carpet__content_suffix}
+  %endif
   ${header.html_search()}
   ${footer.html_footer()}
 </div>

@@ -10,5 +10,7 @@ GLOBAL_CONTEXT = {
     "carpet__breadcrumb_separator": "fa-angle-right",
     "carpet__post_type": {
         "text": "fa-file-text-o"
-    }
+    },
+    "carpet__content_prefix": "",
+    "carpet__content_suffix": ""
 }

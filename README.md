@@ -33,6 +33,8 @@ GLOBAL_CONTEXT = {
      "carpet__breadcrumb_home": "",
      "carpet__breadcrumb_separator": "",
      "carpet__post_type": {},
+     "carpet__content_prefix": "",
+     "carpet__content_suffix": ""
 }
 ```
 
@@ -172,6 +174,11 @@ tool. Here are the steps:
   * copy the inline CSS code to ``EXTRA_HEAD_DATA``
   * set ``carpet__late_load_css`` to **True**
   * enter ``nikola build`` to rebuild all the ``output`` files again
+  
+## More contents
+
+* ``carpet__content_prefix`` - extra custom content before main content
+* ``carpet__content_suffix`` - extra custom content after main content
 
 ## Known Issues
 

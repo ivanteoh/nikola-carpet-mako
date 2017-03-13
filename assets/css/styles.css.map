@@ -3,7 +3,7 @@
 	"file": "styles.css",
 	"sources": [
 		"../../src/scss/styles.scss",
-		"../../src/scss/main.scss",
+		"../../src/scss/modules/main.scss",
 		"../../lib/bulma/bulma.sass",
 		"../../lib/bulma/sass/utilities/_all.sass",
 		"../../lib/bulma/sass/utilities/functions.sass",
