@@ -20,11 +20,14 @@ dir="rtl" \
 \
 lang="${lang}">
 <head>
+  %if carpet__head_prefix:
+    ${carpet__head_prefix}
+  %endif
   <meta charset="utf-8">
   
-  % if use_base_tag:
+  %if use_base_tag:
     <base href="${abs_link(permalink)}">
-  % endif
+  %endif
   
   %if description:
     <meta name="description" content="${description|h}">

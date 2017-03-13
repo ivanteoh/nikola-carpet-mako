@@ -33,6 +33,8 @@ GLOBAL_CONTEXT = {
      "carpet__breadcrumb_home": "",
      "carpet__breadcrumb_separator": "",
      "carpet__post_type": {},
+     "carpet__head_prefix": "",
+     "carpet__body_prefix": "",
      "carpet__content_prefix": "",
      "carpet__content_suffix": ""
 }
@@ -177,8 +179,10 @@ tool. Here are the steps:
   
 ## More contents
 
-* ``carpet__content_prefix`` - extra custom content before main content
-* ``carpet__content_suffix`` - extra custom content after main content
+* ``carpet__head_prefix`` - extra custom content right after opening ``<head>``
+* ``carpet__body_prefix`` - extra custom content right after opening ``<body>``
+* ``carpet__content_prefix`` - extra custom content right before ``<main>`` content
+* ``carpet__content_suffix`` - extra custom content right after ``<main>`` content
 
 ## Known Issues
 
