@@ -11,6 +11,9 @@ GLOBAL_CONTEXT = {
     "carpet__post_type": {
         "text": "fa-file-text-o"
     },
+    "carpet__head_prefix": "",
+    "carpet__body_prefix": "",
     "carpet__content_prefix": "",
-    "carpet__content_suffix": ""
+    "carpet__content_suffix": "",
+    "carpet__cookie_message": ""
 }

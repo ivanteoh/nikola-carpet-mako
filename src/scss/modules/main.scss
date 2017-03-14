@@ -18,6 +18,10 @@ $primary: #445826;
   width: 1px;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 /* brand logo title START */
 .site-image {
   margin-right: 0.5em;
@@ -144,3 +148,12 @@ a.book-figure-title {
     display: block;
 }
 /* ad END */
+
+/* cookie message START */
+.js_enabled .section-cookie {
+    display: none;
+}
+.section-cookie a {
+    color: $primary;
+}
+/* cookie message START */

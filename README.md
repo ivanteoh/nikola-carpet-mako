@@ -36,7 +36,8 @@ GLOBAL_CONTEXT = {
      "carpet__head_prefix": "",
      "carpet__body_prefix": "",
      "carpet__content_prefix": "",
-     "carpet__content_suffix": ""
+     "carpet__content_suffix": "",
+     "carpet__cookie_message": ""
 }
 ```
 
@@ -102,7 +103,7 @@ values are not empty. Here are few more customisation:
 There are few sizes come with [Bulma](http://bulma.io/) Hero, ``is-medium``,
 ``is-large`` and ``is-fullheight``. Change these values to
 ``carpet__hero_size``. Refer to
-[Bulma Hero] (http://bulma.io/documentation/layout/hero/) for more info.
+[Bulma Hero](http://bulma.io/documentation/layout/hero/) for more info.
 
 ### Custom Hero footer
 
@@ -176,7 +177,15 @@ tool. Here are the steps:
   * copy the inline CSS code to ``EXTRA_HEAD_DATA``
   * set ``carpet__late_load_css`` to **True**
   * enter ``nikola build`` to rebuild all the ``output`` files again
-  
+
+## Cookie message
+
+It is to display information about cookies to the users.
+
+* ``carpet__cookie_message`` - cookie message notification
+* ``carpet__cookie_path`` - (optional) for changing cookie path, by default it is across the entire domain
+* ``carpet__cookie_expiry`` - (optional) for extending cookie lifetime, by default it is 30 days
+
 ## More contents
 
 * ``carpet__head_prefix`` - extra custom content right after opening ``<head>``
@@ -199,20 +208,18 @@ tool. Here are the steps:
 * [Mako](http://www.makotemplates.org/) 
 * [Bulma](http://bulma.io/)
 * [Font Awesome](http://fontawesome.io/)
+* [Cookie message](https://github.com/studio24/cookie-message)
 
 ## License
 
-Carpet - [MIT License]
-(https://github.com/ivanteoh/nikola-carpet-mako/blob/master/LICENSE)
+Carpet - [MIT License](https://github.com/ivanteoh/nikola-carpet-mako/blob/master/LICENSE)
 
-Nikola - [MIT License]
-(https://getnikola.com/license.html)
+Nikola - [MIT License](https://getnikola.com/license.html)
 
-Mako - [MIT License]
-(http://www.opensource.org/licenses/mit-license.php)
+Mako - [MIT License](http://www.opensource.org/licenses/mit-license.php)
 
-Bulma [MIT License]
-(https://github.com/jgthms/bulma/blob/master/LICENSE)
+Bulma [MIT License](https://github.com/jgthms/bulma/blob/master/LICENSE)
 
-Font Awesome [Full details]
-(http://fontawesome.io/license/)
+Font Awesome [Full details](http://fontawesome.io/license/)
+
+Cookie message [MIT License](https://github.com/studio24/cookie-message/blob/master/LICENSE.md)
