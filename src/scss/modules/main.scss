@@ -125,3 +125,22 @@ a.book-figure-title {
   vertical-align: middle;
 }
 /* footer END */
+
+/* ad START */
+.section.is-light {
+  background-color: whitesmoke;
+}
+.signboard {
+  background-color: $primary;
+  border-radius: 2px;
+  color: $primary-invert;
+  display: inline-block;
+  font-size: 12px;
+  padding: 0 4px;
+  text-transform: uppercase;
+  vertical-align: top;
+}
+.leaderboard {
+    display: block;
+}
+/* ad END */
