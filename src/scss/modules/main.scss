@@ -22,6 +22,19 @@ a:hover {
   text-decoration: underline;
 }
 
+.section-cookie,
+.entry-summary,
+.entry-content,
+.storypage {
+  a {
+    text-decoration: underline;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
 /* brand logo title START */
 .site-image {
   margin-right: 0.5em;
