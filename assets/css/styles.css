@@ -6802,14 +6802,14 @@ a:hover {
 .section-cookie a,
 .entry-summary a,
 .entry-content a,
-.storypage a {
+.postlist a {
   text-decoration: underline;
 }
 
 .section-cookie a:hover,
 .entry-summary a:hover,
 .entry-content a:hover,
-.storypage a:hover {
+.postlist a:hover {
   text-decoration: none;
 }
 
