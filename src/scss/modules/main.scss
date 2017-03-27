@@ -147,14 +147,13 @@ a.book-figure-title {
 .section.is-light {
   background-color: whitesmoke;
 }
-.signboard {
-  display: table;
-  font-size: 12px;
-  margin: 4px auto 0;
-  text-transform: uppercase;
-}
 .leaderboard {
     display: block;
+    & > ins:before {
+        content: "Advertisement";
+        font-size: 12px;
+        text-transform: uppercase;
+    }
 }
 /* ad END */
 
