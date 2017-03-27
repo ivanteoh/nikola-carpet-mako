@@ -148,14 +148,10 @@ a.book-figure-title {
   background-color: whitesmoke;
 }
 .signboard {
-  background-color: $primary;
-  border-radius: 2px;
-  color: $primary-invert;
-  display: inline-block;
+  display: table;
   font-size: 12px;
-  padding: 0 4px;
+  margin: 4px auto 0;
   text-transform: uppercase;
-  vertical-align: top;
 }
 .leaderboard {
     display: block;
