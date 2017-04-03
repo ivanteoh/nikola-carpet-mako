@@ -3,7 +3,7 @@
 %if prevlink or nextlink:
   <div class="columns">
     <div class="column">
-      <nav class="pagination postindexpager pager">
+      <nav id="pagination-nav" aria-label="Pagination Nav" class="pagination postindexpager pager">
         %if prevlink:
           <a class="pagination-previous previous"href="${prevlink}" rel="prev">${messages("Newer posts")}</a>
         %endif

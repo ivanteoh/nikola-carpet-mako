@@ -1,6 +1,6 @@
 ## -*- coding: utf-8 -*-
 <%def name="page_navigation(current_page, page_links, prevlink, nextlink, prev_next_links_reversed, surrounding=5)">
-<nav class="pagination is-centered">
+<nav id="page-nav" aria-label="Page Nav" class="pagination is-centered">
   <ul class="pagination-list page-navigation">
     % for i, link in enumerate(page_links):
       % if abs(i - current_page) <= surrounding or i == 0 or i == len(page_links) - 1:

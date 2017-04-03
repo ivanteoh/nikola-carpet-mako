@@ -26,12 +26,14 @@ ${template_hooks['extra_head']()}
   // Detect JS support
   document.body.className = document.body.className + " js_enabled";
 </script>
-<a href="#content" class="sr-only sr-only-focusable">${messages("Skip to main content")}</a>
+<nav aria-labelledby="to-main">
+  <a id="to-main" href="#content" class="sr-only sr-only-focusable">${messages("Skip to main content")}</a>
+</nav>
 <div id="container">
   %if carpet__hero_size:
-    <section class="hero is-primary ${carpet__hero_size}">
+    <header class="hero is-primary ${carpet__hero_size}">
   %else:
-    <section class="hero is-primary">
+    <header class="hero is-primary">
   %endif
     <!-- Hero header: will stick at the top -->
     ${header.html_header()}
@@ -60,7 +62,7 @@ ${template_hooks['extra_head']()}
     %if carpet__hero_footer:
       ${carpet__hero_footer}
     %endif
-  </section>
+  </header>
   %if carpet__cookie_message:
   <div id="cookie-message" class="section section-cookie"
     %if carpet__cookie_path:

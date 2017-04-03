@@ -28,7 +28,7 @@
 %if post.prev_post or post.next_post:
   <div class="columns">
     <div class="column">
-      <nav class="pagination pager hidden-print">
+      <nav id="post-nav" aria-label="Post Nav" class="pagination pager hidden-print">
         %if post.prev_post:
           <a class="pagination-previous previous" href="${post.prev_post.permalink()}" rel="prev" title="${post.prev_post.title()|h}">${messages("Previous post")}</a>
         %endif

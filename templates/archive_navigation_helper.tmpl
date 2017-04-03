@@ -3,7 +3,7 @@
 <%def name="archive_navigation()">
 %if 'archive_page' in pagekind:
   %if has_archive_navigation:
-    <nav class="tabs is-fullwidth archivenav">
+    <nav id="archive-nav" aria-label="Archive Nav" class="tabs is-fullwidth archivenav">
       <ul class="pager">
       %if previous_archive:
         <li class="previous"><a href="${previous_archive}" rel="prev">${messages("Previous")}</a></li>

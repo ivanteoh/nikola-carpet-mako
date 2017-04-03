@@ -2,7 +2,7 @@
 
 <%def name="bar(crumbs)">
 %if crumbs:
-  <nav class="level breadcrumbs">
+  <nav id="breadcrumb-nav" aria-label="Breadcrumb Nav" class="level breadcrumbs">
     <div class="breadcrumb level-left">
       %for link, text in crumbs:
         %if text != index_file:

@@ -87,10 +87,10 @@
   <div class="section content e-content entry-content" itemprop="articleBody text">
     ${post.text()}
   </div>
-  <aside class="postpromonav">
+  <div class="postpromonav">
     ${helper.html_tags(post)}
     ${helper.html_pager(post)}
-  </aside>
+  </div>
   %if site_has_comments and enable_comments and not post.meta('nocomments'):
     <section class="section comments hidden-print">
       <h2 class="title is-2">${messages("Comments")}</h2>

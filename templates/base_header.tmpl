@@ -3,7 +3,7 @@
 
 <%def name="html_header()">
 <div class="hero-head">
-  <header  id="header" class="nav">
+  <nav id="header-nav" aria-label="Header Main Nav" class="nav">
     <div class="container">
       %if logo_url or show_blog_title or len(translations) > 1:
       <div class="nav-left">
@@ -14,7 +14,7 @@
       ${html_navigation_links()}
       ${template_hooks['page_header']()}
     </div>
-  </header>
+  </nav>
 </div>
 </%def>
 
