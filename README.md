@@ -1,5 +1,7 @@
 # Carpet
 
+***This repo is no longer maintained as the code is moved to https://github.com/getnikola/nikola-themes/tree/master/v7/carpet***
+
 Nikola theme based from [Bulma](http://bulma.io/). [Nikola](https://getnikola.com/)
 is a static site and blog generator. Template is using
 [Mako](http://www.makotemplates.org/) syntax and
